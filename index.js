@@ -8,7 +8,10 @@ const app = express()
 
 app.use(express.json())  //req.body
 app.use(cookieParser())  //req.cookies
-app.use(cors())
+app.use(cors({
+    // origin: "http://localhost:5173", credentials: true
+    origin: true, credentials: true
+}))
 
 app.use("/api/auth", require("./routes/auth.routes"))
 app.use("/api/admin", require("./routes/admin.routes"))

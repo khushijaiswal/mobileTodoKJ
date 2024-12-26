@@ -29,7 +29,7 @@ exports.adminLogin = asyncHandler(async (req, res) => {
         httpOnly: true,
         secure: process.env.NODE_ENV === "prod" ? true : false  //keep false for local and true in production
     })
-    res.status(401).json({
+    res.json({
         message: "admin login success", result: {
             name: result.name,
             email: result.email
