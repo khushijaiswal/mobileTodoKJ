@@ -67,7 +67,7 @@ exports.employeeLogin = asyncHandler(async (req, res) => {
         httpOnly: true,
         secure: process.env.NODE_ENV === "prod" ? true : false  //keep false for local and true in production
     })
-    res.status(401).json({
+    res.json({
         message: "employee login success", result: {
             name: result.name,
             email: result.email
@@ -76,5 +76,5 @@ exports.employeeLogin = asyncHandler(async (req, res) => {
 })
 exports.employeeLogout = asyncHandler(async (req, res) => {
     res.clearCookie("todo-emp")
-    res.json({ message: "employee login success" })
+    res.json({ message: "employee logout success" })
 })
